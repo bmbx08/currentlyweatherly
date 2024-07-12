@@ -1,0 +1,137 @@
+body{
+    background: url(./images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.weather-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 1000px;
+    height: 600px;
+    background-color: rgb(255, 255, 255,0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    
+    border-radius: 25px;
+    border: 3px solid white;
+    margin-bottom: 1em;
+}
+
+.title-section{
+    display:flex;
+}
+
+.title-section>img{
+    position:relative;
+    bottom: 8px;
+}
+
+.title-section>h2{
+    margin-left: 0.2em;
+}
+
+.search-section>input{
+    width: 400px;
+    height: 35px;
+    border: 1px solid #dfe1e5;
+    border-radius:24px;
+    margin-right:8px;
+    padding-left: 35px;
+}
+
+.search-section>input:hover{
+    background: #fff;
+    box-shadow: 0 1px 6px rgba(32, 33, 36, .28);
+    border-color: transparent;
+}
+
+.search-section>i{
+    position: relative;
+    left: 28px;
+    bottom: 1px;
+    color: #9aa0a6;
+}
+
+:focus-visible {
+    outline: -webkit-focus-ring-color auto 0px; 
+    /* makes input border not highlighted when selected */
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 2em;
+}
+
+.temp-box{
+    flex-direction:row;
+}
+
+.weather-section img{
+    width: 6em;
+}
+
+.mid-box>img{
+    width: 7em;
+}
+
+.weather-section h4{
+    text-align: center;
+}
+
+.temp-box h4{
+    text-align: left;
+}
+
+.button-style{
+    color:black;
+}
+
+.button-style>img{
+    width:50px;
+}
+
+
+
+/* .weather-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 600px;
+    height: 250px;
+    background-color: azure;
+    border-radius: 25px;
+    border: 3px solid white;
+    margin-bottom: 1em;
+}
+
+.button-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 600px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+.button-style{
+    margin: 0 1em;
+} */
