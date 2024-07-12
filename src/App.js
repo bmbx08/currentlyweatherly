@@ -12,23 +12,19 @@ import london from "./images/london.png";
 import beijing from "./images/beijing.png";
 import paris from "./images/paris.png";
 import tokyo from "./images/tokyo.png";
+import ResultTextSection from "./component/ResultTextSection";
 
+let searchInput = document.getElementById("search-input");
 const cities = [
-  {name: "New York",
-    source: newyork,},
-  {name: "London",
-    source: london,},
-  {name: "Tokyo",
-    source: tokyo,},
-  {name: "Paris",
-    source: paris,},
-  {name: "Beijing",
-    source: beijing,},
-  {name: "Hawaii",
-    source: hawaii,},
+  {name: "New York", source: newyork},
+  {name: "London", source: london},
+  {name: "Tokyo", source: tokyo},
+  {name: "Paris", source: paris},
+  {name: "Beijing", source: beijing},
+  {name: "Hawaii", source: hawaii},
 ];
 const API_KEY = "6320e21052b10fe9eaa63c37ff048228";
-let lang = "kr"; //en for english
+let lang = "en"; //en for english
 
 //1. 앱 실행되자마자 현재위치기반의 날씨 정보가 보인다
 //2. 도씨, 섭씨, 화씨 날씨 정보가 보인다.
@@ -42,7 +38,7 @@ function App() {
   const [city, setCity] = useState(null);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [fixedCity, setFixedCity] = useState("");
+  const [searchedCity, setSearchedCity] = useState("");
 
   const getCurrentLocation = async () => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -86,6 +82,26 @@ function App() {
     }
   };
 
+  const search = async (event) => {
+    if (event.key == "Enter") {
+      let keyword = event.target.value;
+      setCity(keyword);
+      try {
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${keyword}&appid=${API_KEY}&lang=${lang}&units=metric`;
+        let response = await fetch(url);
+        console.log("response", response);
+        let data = await response.json();
+        console.log("data", data);
+        setWeather(data);
+        setLoading(false);
+      } catch (error) {
+        console.log("error message", error);
+        setErrorMessage(error.message);
+        setLoading(false);
+      }
+    }
+  };
+
   const handleCityChange = (city) => {
     if (city == "current") {
       setCity(null);
@@ -116,6 +132,9 @@ function App() {
     <div>
       <div className="container">
         <div className="weather-box">
+          <TitleSection />
+          <SearchSection search={search} />
+          <ResultTextSection selectedCity={city} />
           {loading ? (
             <>
               <ClipLoader
@@ -128,9 +147,11 @@ function App() {
             </>
           ) : !errorMessage ? (
             <>
-              <TitleSection />
-              <SearchSection />
-              <WeatherSection weather={weather} roundNumber={roundNumber} selectedCity={city} />
+              <WeatherSection
+                weather={weather}
+                roundNumber={roundNumber}
+                selectedCity={city}
+              />
               <SuggestSection
                 cities={cities}
                 handleCityChange={handleCityChange}

@@ -1,8 +1,19 @@
+@font-face{
+    font-family: '둥글';
+    font-style: 'normal';
+    font-weight: 400;
+    src: url('KCC-Ganpan.woff');
+}
+
 body{
     background: url(./images/background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "둥글";
 }
 
 .container{
@@ -10,7 +21,6 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 .weather-box{
@@ -18,18 +28,16 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 1000px;
-    height: 600px;
     background-color: rgb(255, 255, 255,0.5);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    
     border-radius: 25px;
     border: 3px solid white;
-    margin-bottom: 1em;
+    padding: 1em 6em;
 }
 
 .title-section{
     display:flex;
+    margin: 15px 0;
 }
 
 .title-section>img{
@@ -41,8 +49,12 @@ body{
     margin-left: 0.2em;
 }
 
+.search-section {
+    margin-bottom: 10px;
+}
+
 .search-section>input{
-    width: 400px;
+    width: 500px;
     height: 35px;
     border: 1px solid #dfe1e5;
     border-radius:24px;
@@ -68,11 +80,27 @@ body{
     /* makes input border not highlighted when selected */
 }
 
+.text-middle{
+    text-align: center;
+}
+
+.result-city{
+    color:blue;
+}
+
+.column{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .col{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 80%;
+    height: 80%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     border: 1px solid white;
@@ -81,6 +109,7 @@ body{
 
 .temp-box{
     flex-direction:row;
+    padding-right:3em;
 }
 
 .weather-section img{
@@ -99,6 +128,14 @@ body{
     text-align: left;
 }
 
+.wind-box img{
+    margin-bottom: 1em;
+}
+
+.myloc-button{
+    margin-bottom:1.5em;
+}
+
 .button-style{
     color:black;
 }
@@ -107,31 +144,55 @@ body{
     width:50px;
 }
 
+@media (max-width:992px){
+    .weather-box{
+        width: auto;
+        height: auto;
+    }
 
+    .col{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 80%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        border: 1px solid white;
+        padding: 1em;
+    }
+    
+    .temp-box{
+        flex-direction:row;
+        padding-right:3em;
+    }
+    
+    .weather-section img{
+        width: 4em;
+    }
+    
+    .mid-box>img{
+        width: 5em;
+    }
 
-/* .weather-section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 600px;
-    height: 250px;
-    background-color: azure;
-    border-radius: 25px;
-    border: 3px solid white;
-    margin-bottom: 1em;
+    .wind-box img{
+        margin: 1em;
+    }
+    
+    .myloc-button{
+        margin-bottom:1.5em;
+    }
+    
+    .button-style{
+        color:black;
+    }
+    
+    .button-style>img{
+        width: 3em;
+    }
 }
 
-.button-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    width: 600px;
-    height: 100px;
-    border-radius: 50px;
-}
+@media (max-width:600px){
 
-.button-style{
-    margin: 0 1em;
-} */
+}

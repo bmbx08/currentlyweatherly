@@ -1,11 +1,14 @@
 import React from "react";
+import {Button} from "react-bootstrap";
 
-const SearchSection = () => {
-  return (
+const SearchSection = ({search}) => {
+    return (
+    <>
     <div className="search-section">
       <i className="fa-solid fa-magnifying-glass"></i>
-      <input />
+      <input type="text" onKeyPress={(event)=>search(event)}/>
     </div>
+    </>
   );
 };
 

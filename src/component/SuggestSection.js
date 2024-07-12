@@ -16,14 +16,14 @@ const SuggestSection = ({cities, selectedCity, handleCityChange}) => {
     <Container>
       <Button
         variant={`${selectedCity == null ? "light" : "outline-light"}`}
-        className="button-style"
+        className="button-style myloc-button"
         onClick={() => handleCityChange("current")}
       >
         내 위치
       </Button>
       <Row>
         {cities.map((city) => (
-          <Col lg={2} md={4} sm={6}>
+          <Col lg={2} md={2} sm={2} xs={3}>
             <Button
               variant={`${
                 selectedCity == city.name ? "light" : "outline-light"
