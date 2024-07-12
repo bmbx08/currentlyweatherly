@@ -19,7 +19,7 @@ const SuggestSection = ({cities, selectedCity, handleCityChange}) => {
         className="button-style myloc-button"
         onClick={() => handleCityChange("current")}
       >
-        내 위치
+        My Location
       </Button>
       <Row>
         {cities.map((city) => (
